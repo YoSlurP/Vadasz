@@ -50,7 +50,7 @@ public class HelloController {
             it[s][o].setOnMousePressed(e-> katt(ss,oo));
             pnJatek.getChildren().add(it[s][o]);
         }
-        generalerdo();
+
         timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -59,6 +59,7 @@ public class HelloController {
                 if(roka==0){timer.stop();vege();}
             }
         };
+        generalerdo();
         timer.start();
     }
 
@@ -70,6 +71,7 @@ public class HelloController {
             }else{
                 t[s][o]=TREE;
             }
+            it[s][o].setImage(icon[DARK]);
         }
         rokaMax = roka;
         lbLoves.setText(loves +" löves / "+ maxloves+" talált");
