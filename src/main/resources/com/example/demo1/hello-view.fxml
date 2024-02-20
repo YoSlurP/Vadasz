@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -9,7 +10,10 @@
         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
     </padding>
    <children>
-      <Pane fx:id="pnJatek" prefHeight="768.0" prefWidth="1536.0" />
+      <Pane fx:id="pnJatek" prefHeight="768.0" prefWidth="1536.0">
+         <cursor>
+            <Cursor fx:constant="CROSSHAIR" />
+         </cursor></Pane>
       <HBox>
          <children>
             <Label fx:id="lbLoves" text="0 lövés / 0 találat" />
