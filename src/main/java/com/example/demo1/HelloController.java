@@ -2,6 +2,8 @@ package com.example.demo1;
 
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -54,6 +56,7 @@ public class HelloController {
             public void handle(long now) {
                 most=now;
                 if(now > r) elbujik();
+                if(roka==0){timer.stop();vege();}
             }
         };
         timer.start();
@@ -108,6 +111,20 @@ public class HelloController {
         }
         lbLoves.setText(loves +" löves / "+ maxloves+" talált");
 
+    }
+
+    private void vege(){
+        for(int s=0;s<16;s++)for(int o=0;o<32;o++) it[s][o].setImage(icon[t[s][o]]);
+        Alert uzenet= new Alert(Alert.AlertType.NONE);
+        uzenet.setTitle("Game Over!");
+        uzenet.setHeaderText(null);
+        String txt=String.format("%d lövésből %d talált, ami %d%%\n",loves,maxloves,maxloves*100/loves);
+        txt+=String.format("%d rókábol %d lett lelőve, ami %d%%",rokaMax,maxloves, maxloves*100/rokaMax);
+        uzenet.setContentText(txt);
+        uzenet.getButtonTypes().removeAll();
+        uzenet.getButtonTypes().add(new ButtonType("Újra"));
+        uzenet.setOnCloseRequest(e->generalerdo());
+        uzenet.show();
     }
 
 
